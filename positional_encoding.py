@@ -1,5 +1,13 @@
 sentence = "I want to study attention mechanism"
 
+learn = """
+所以，总结一下理想的位置编码应该满足：
+
+为每个字输出唯一的编码；
+不同长度的句子之间，任何两个字之间的差值应该保持一致；
+编码值应该是有界的。
+"""
+
 import matplotlib.pyplot as plt
 import math
 import numpy as np
