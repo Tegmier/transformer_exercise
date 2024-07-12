@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import os
 import warnings
 from tqdm import tqdm
+
+from rich.progress import Progress
+
 warnings.filterwarnings("ignore")
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 class PositionalEncoding(nn.Module):
@@ -52,6 +55,7 @@ class PositionalEncoding(nn.Module):
 test_sentences =  [[3,2,1,7,5,3,2,1,7,5,3,2,1,7,5],[4,2,6,3,2]]
 test_sentences_len = torch.LongTensor([len(test_sentences[0]),len(test_sentences[1])])
 print(test_sentences_len)
+
 PE = PositionalEncoding(model_dim=64)
 pe_enc_out = PE(test_sentences_len)
 print(pe_enc_out.size())

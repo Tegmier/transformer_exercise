@@ -1,3 +1,8 @@
+import torch
+import torch.nn as nn
+from scale_dot_product_attention import ScaledDotProductAttention
+import numpy as np
+
 
 class MultiHeadAttention(nn.Module):
     ''' Multi-Head Attention module '''
@@ -54,3 +59,12 @@ class MultiHeadAttention(nn.Module):
         output = self.layer_norm(output + residual)
 
         return output, attn
+    
+
+
+max_sentence_len=15
+mha=MultiHeadAttention()
+input_tensor = torch.FloatTensor(np.random.rand(batch_size,max_sentence_len,d_model)+1)
+mha_out = mha(input_tensor,input_tensor,input_tensor)
+print(mha_out[0].size(),mha_out[1].size())
+
